@@ -1,0 +1,152 @@
+# Logfile created on 2012-10-10 09:17:56 -0700 by logger.rb/31641
+Net::HTTP::Get: /gotv/admin/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: host => gotv-locations.barackobama.com
+status: Net::HTTPFound 1.1 302 FOUND
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=utf-8
+response-header: date => Wed, 10 Oct 2012 16:18:15 GMT
+response-header: location => http://gotv-locations.barackobama.com/login/?next=/gotv/admin/
+response-header: server => Apache
+response-header: vary => Cookie,Accept-Encoding
+response-header: content-length => 20
+response-header: connection => keep-alive
+Read 20 bytes (20 total)
+gzip response
+follow redirect to: http://gotv-locations.barackobama.com/login/?next=/gotv/admin/
+Net::HTTP::Get: /login/?next=/gotv/admin/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: host => gotv-locations.barackobama.com
+status: Net::HTTPFound 1.1 302 Found
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=iso-8859-1
+response-header: date => Wed, 10 Oct 2012 16:18:15 GMT
+response-header: location => https://gotv-locations.barackobama.com/login/?next=/gotv/admin/
+response-header: server => Apache
+response-header: vary => Accept-Encoding
+response-header: content-length => 249
+response-header: connection => keep-alive
+Read 249 bytes (249 total)
+gzip response
+follow redirect to: https://gotv-locations.barackobama.com/login/?next=/gotv/admin/
+Net::HTTP::Get: /login/?next=/gotv/admin/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: host => gotv-locations.barackobama.com
+status: Net::HTTPOK 1.1 200 OK
+response-header: cache-control => max-age=0
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=utf-8
+response-header: date => Wed, 10 Oct 2012 16:18:16 GMT
+response-header: expires => Wed, 10 Oct 2012 16:18:16 GMT
+response-header: last-modified => Wed, 10 Oct 2012 16:18:16 GMT
+response-header: server => Apache
+response-header: set-cookie => csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA; expires=Wed, 09-Oct-2013 16:18:16 GMT; Max-Age=31449600; Path=/, sessionid=721efa6cdf30d6ed79401ff79db72a04; expires=Wed, 24-Oct-2012 16:18:16 GMT; httponly; Max-Age=1209600; Path=/
+response-header: vary => Cookie,Accept-Encoding
+response-header: content-length => 1017
+response-header: connection => keep-alive
+Read 841 bytes (841 total)
+Read 176 bytes (1017 total)
+gzip response
+saved cookie: csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA
+saved cookie: sessionid=721efa6cdf30d6ed79401ff79db72a04
+query: "csrfmiddlewaretoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA&next=%2Fgotv%2Fadmin%2F&username=ofaadmin&password=ForwardWithBarackObama2012"
+Net::HTTP::Post: /login/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: cookie => csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA; sessionid=721efa6cdf30d6ed79401ff79db72a04
+request-header: host => gotv-locations.barackobama.com
+request-header: referer => https://gotv-locations.barackobama.com/login/?next=/gotv/admin/
+request-header: content-type => application/x-www-form-urlencoded
+request-header: content-length => 130
+status: Net::HTTPFound 1.1 302 FOUND
+response-header: cache-control => max-age=0
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=utf-8
+response-header: date => Wed, 10 Oct 2012 16:19:22 GMT
+response-header: expires => Wed, 10 Oct 2012 16:19:22 GMT
+response-header: last-modified => Wed, 10 Oct 2012 16:19:22 GMT
+response-header: location => http://gotv-locations.barackobama.com/gotv/admin/
+response-header: server => Apache
+response-header: set-cookie => sessionid=b2df118f424a00f627fb31d98dec7675; expires=Wed, 24-Oct-2012 16:19:22 GMT; httponly; Max-Age=1209600; Path=/
+response-header: vary => Cookie,Accept-Encoding
+response-header: content-length => 20
+response-header: connection => keep-alive
+Read 20 bytes (20 total)
+gzip response
+saved cookie: sessionid=b2df118f424a00f627fb31d98dec7675
+follow redirect to: http://gotv-locations.barackobama.com/gotv/admin/
+Net::HTTP::Get: /gotv/admin/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: cookie => csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA; sessionid=b2df118f424a00f627fb31d98dec7675
+request-header: host => gotv-locations.barackobama.com
+status: Net::HTTPFound 1.1 302 Found
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=iso-8859-1
+response-header: date => Wed, 10 Oct 2012 16:19:22 GMT
+response-header: location => https://gotv-locations.barackobama.com/gotv/admin/
+response-header: server => Apache
+response-header: vary => Accept-Encoding
+response-header: content-length => 239
+response-header: connection => keep-alive
+Read 239 bytes (239 total)
+gzip response
+follow redirect to: https://gotv-locations.barackobama.com/gotv/admin/
+Net::HTTP::Get: /gotv/admin/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: cookie => csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA; sessionid=b2df118f424a00f627fb31d98dec7675
+request-header: host => gotv-locations.barackobama.com
+request-header: referer => https://gotv-locations.barackobama.com/login/?next=/gotv/admin/
+status: Net::HTTPOK 1.1 200 OK
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=utf-8
+response-header: date => Wed, 10 Oct 2012 16:19:22 GMT
+response-header: server => Apache
+response-header: vary => Cookie,Accept-Encoding
+response-header: content-length => 850
+response-header: connection => keep-alive
+Read 850 bytes (850 total)
+gzip response
+Net::HTTP::Get: /gotv/admin/create/
+request-header: accept => */*
+request-header: user-agent => Mozilla/5.0 (Macintosh; Intel Mac OS X 10_7_2) AppleWebKit/534.51.22 (KHTML, like Gecko) Version/5.1.1 Safari/534.51.22
+request-header: accept-encoding => gzip,deflate,identity
+request-header: accept-charset => ISO-8859-1,utf-8;q=0.7,*;q=0.7
+request-header: accept-language => en-us,en;q=0.5
+request-header: cookie => csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA; sessionid=b2df118f424a00f627fb31d98dec7675
+request-header: host => gotv-locations.barackobama.com
+status: Net::HTTPOK 1.1 200 OK
+response-header: content-encoding => gzip
+response-header: content-type => text/html; charset=utf-8
+response-header: date => Wed, 10 Oct 2012 16:19:51 GMT
+response-header: server => Apache
+response-header: set-cookie => csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA; expires=Wed, 09-Oct-2013 16:19:51 GMT; Max-Age=31449600; Path=/
+response-header: vary => Cookie,Accept-Encoding
+response-header: content-length => 4081
+response-header: connection => keep-alive
+Read 1082 bytes (1082 total)
+Read 2999 bytes (4081 total)
+gzip response
+saved cookie: csrftoken=nC3Xvlaj9hu4wLSJis8mFL65O8GdPCdA
