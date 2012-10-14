@@ -11,7 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121014192509) do
+ActiveRecord::Schema.define(:version => 20121014193022) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "list_id"
+    t.string   "asset_path"
+    t.string   "asset_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "list_statuses", :force => true do |t|
     t.integer  "list_id"
@@ -29,6 +37,12 @@ ActiveRecord::Schema.define(:version => 20121014192509) do
     t.integer  "precinct_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "organizations", :force => true do |t|
+    t.string   "organization_name"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   create_table "packets", :force => true do |t|
