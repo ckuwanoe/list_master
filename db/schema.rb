@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010044007) do
+ActiveRecord::Schema.define(:version => 20121014192509) do
 
   create_table "list_statuses", :force => true do |t|
     t.integer  "list_id"
@@ -31,9 +31,24 @@ ActiveRecord::Schema.define(:version => 20121010044007) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "packets", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "scrapers", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "walked_packets", :force => true do |t|
+    t.integer  "packet_id"
+    t.integer  "doors_total"
+    t.integer  "doors_knocked"
+    t.integer  "doors_conversations"
+    t.date     "date"
+    t.datetime "created_at",          :null => false
+    t.datetime "updated_at",          :null => false
   end
 
 end
