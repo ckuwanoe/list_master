@@ -1,3 +1,3 @@
 class Organization < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :organization_name
 end
