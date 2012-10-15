@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require twitter/bootstrap
 //= require jquery.tablesorter.min
 //= require jquery.lightbox-0.5.min
 //= require jquery.lightbox-0.5.pack

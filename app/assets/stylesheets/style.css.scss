@@ -101,11 +101,6 @@ table {
     display:none;
 }
 
-
-
-
-
-
 body{
     background-repeat:repeat;
     background-color:rgb(251,251,251);
@@ -183,9 +178,6 @@ header i{
     width:auto;
     float:right;
 }
-
-
-
 
 .subHead{
     height:29px;
@@ -681,19 +673,6 @@ textarea.sharp{
     -moz-border-radius:0px;
 }
 
-
-
-
-
-
-
-/*
-.btn-info,.btn-primary,.btn-success,.btn,.btn-warning,.btn-danger{
-    background-image:none;
-}
-*/
-
-
 /*NEW GLYPHICONS ICONS*/
 
 i[class*='icon-new-']{
@@ -707,37 +686,37 @@ i[class*='icon-new-'].big{
     height:24px;
 }
 i.icon-new-group{
-    background-image:url('../img/icons/glyphicons_043_group.png');
+    background-image: image-url('icons/glyphicons_043_group.png');
     background-size:14px 11px;
     position:relative;
     top:2px;
 }
 .icon-new-stats{
-    background-image:url('../img/icons/glyphicons_040_stats.png');
+    background-image: image-url('icons/glyphicons_040_stats.png');
 }
 .icon-new-charts{
-    background-image:url('../img/icons/glyphicons_041_charts.png');
+    background-image:image-url('icons/glyphicons_041_charts.png');
 }
 .icon-new-gplus{
-    background-image:url('../img/icons/glyphicons_362_google+_alt.png');
+    background-image: image-url('icons/glyphicons_362_google+_alt.png');
 }
 .icon-new-twitter{
-    background-image:url('../img/icons/glyphicons_392_twitter.png');
+    background-image: image-url('icons/glyphicons_392_twitter.png');
 }
 .icon-new-facebook{
-    background-image:url('../img/icons/glyphicons_390_facebook.png');
+    background-image: image-url('icons/glyphicons_390_facebook.png');
 }
 .icon-new-dashboard{
-    background-image:url('../img/icons/glyphicons_331_dashboard.png');
+    background-image: image-url('icons/glyphicons_331_dashboard.png') !important;
 }
 .icon-new-social{
-    background-image:url('../img/icons/glyphicons_355_announcement.png');
+    background-image: image-url('icons/glyphicons_355_announcement.png');
 }
 .icon-new-gallery{
-    background-image:url('../img/icons/glyphicons_319_sort.png');
+    background-image: image-url('icons/glyphicons_319_sort.png');
 }
 .icon-new-blog{
-    background-image:url('../img/icons/glyphicons_351_book_open.png');
+    background-image: image-url('icons/glyphicons_351_book_open.png');
 }
 
 
