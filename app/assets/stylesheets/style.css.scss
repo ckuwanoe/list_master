@@ -327,8 +327,6 @@ footer{
 
 }
 
-
-
 .item{
     margin-bottom:20px;
     padding-bottom:10px;
@@ -350,12 +348,6 @@ footer{
 .item p:first-child{
     margin-bottom:10px;
 }
-
-
-
-
-
-
 
 hr {
   margin: 18px 0;
@@ -415,13 +407,6 @@ hr {
 #uOpsL{
     margin-top:-10px;
 }
-
-
-
-
-
-
-
 
 .page-header{
     margin-top:0;
@@ -731,9 +716,26 @@ h1,h2,h3,h4,h5,h6{
     padding-top:10px;
 }
 
+.menuText {
+
+    a {
+        color: #444;
+
+        &:hover {
+            text-decoration: none;
+        }
+    }
 
 
+}
 
+.float-left {
+    float: left;
+}
+
+.remember {
+    margin: 10px 0;
+}
 
 /*ON DASHBOARD PAGE*/
 .dashMenu{
