@@ -12,5 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require_tree .
+//= require bootstrap
+//= require jquery.tablesorter.min
+//= require jquery.lightbox-0.5.min
+//= require jquery.lightbox-0.5.pack
+//= require showdown
+//= require google-jsapi
+//= require main
