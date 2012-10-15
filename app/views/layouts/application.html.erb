@@ -40,7 +40,7 @@
   </div>
   <div class="span3 pull-right">
     <div class="loginBox">
-      <button class="btn btn-info droppy-toggle right" type='button' data-toggle='droppy'><i class='icon-white icon-user'></i> User&nbsp;&nbsp;<b class='caret'></b></button>
+      <button class="btn btn-info droppy-toggle right" type='button' data-toggle='droppy'><i class='icon-white icon-user'></i> Corey Kuwanoe&nbsp;&nbsp;<b class='caret'></b></button>
       <ul class="dropdown-menu droppy-menu" id="uOpsL">
         <li><a href="#"><i class='icon-user'></i> Profile</a></li>
         <li><a href="#" data-target='settingsModal'><i class='icon-cog'></i> Settings</a></li>
@@ -70,8 +70,8 @@
   <div class="row-fluid">
     <div class="span2 sideBar">
       <ul>
-        <li data-link="home" class="active"><figure><i class='icon-home'></i> <div class='menuText'>Home</div></figure></li>
-        <li data-link="features"><figure><i class='icon-star'></i> <div class='menuText'>Features</div></figure></li>
+        <li data-link="home" class="active"><figure><i class='icon-home'></i> <div class='menuText'><%= link_to "Home", root_url %></div></figure></li>
+        <li data-link="features"><figure><i class='icon-new-check'></i> <div class='menuText'><%= link_to "Assign Lists", new_list_status_path %></div></figure></li>
         <li data-link="dashboard"><figure><i class='icon-new-dashboard'></i> <div class='menuText'>Dashboard</div></figure></li>
         <hr/>
         <li data-link='portfolio'><figure><i class='icon-th-large'></i> <div class='menuText'>Portfolio</div></figure></li>
@@ -140,5 +140,7 @@
 <!-- ### BACKGROUND DIV -->
 <div class='bg'>
 </div>
+<%= javascript_include_tag "application" %>
+<%= yield :scripts %>
 </body>
 </html>
