@@ -2,6 +2,7 @@ class Precinct < ActiveRecord::Base
   # attr_accessible :title, :body
   #set_primary_key :precinct_number
   belongs_to :team
+  belongs_to :list
   has_one :precinct_score, :foreign_key => 'precinct_number'
   has_many :shift_details
   attr_accessible :precinct_number, :team_id, :county, :van_precinct_id
