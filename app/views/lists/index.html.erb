@@ -7,6 +7,8 @@
           <td>VAN List ID</td>
           <td>County</td>
           <td>Precinct Number</td>
+          <td>Current Status</td>
+          <td>Last Status</td>
         </tr>
       </thead>
       <tbody>
@@ -16,6 +18,8 @@
           <td><%= list.van_list_id %></td>
           <td><%= list.precinct.county %></td>
           <td><%= list.precinct.precinct_number %></td>
+          <td><%= list.current_status %></td>
+          <td><%= list.latest_status %></td>
         </tr>
         <% end %>
       </tbody>

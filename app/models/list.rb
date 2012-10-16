@@ -13,4 +13,9 @@ class List < ActiveRecord::Base
   def latest_status
     status = ListStatus.where(:list_id => self.id).order("created_at DESC").first
   end
+
+  def current_status
+    status = ListStatus.where(:list_id => self.id, :date => Time.zone.now)
+    status.present? ? "#{status.status} by #{status.organization.organization_name}" : "Open"
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121015225225) do
+ActiveRecord::Schema.define(:version => 20121016044105) do
 
   create_table "assets", :force => true do |t|
     t.integer  "list_id"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(:version => 20121015225225) do
     t.datetime "created_at",         :null => false
     t.datetime "updated_at",         :null => false
     t.integer  "created_by_user_id"
+    t.date     "date"
   end
 
   create_table "lists", :force => true do |t|
@@ -52,14 +53,46 @@ ActiveRecord::Schema.define(:version => 20121015225225) do
     t.datetime "updated_at",      :null => false
   end
 
+  create_table "organizers", :force => true do |t|
+    t.integer   "region_id"
+    t.string    "first_name"
+    t.string    "last_name"
+    t.timestamp "created_at", :limit => 6, :null => false
+    t.timestamp "updated_at", :limit => 6, :null => false
+  end
+
   create_table "packets", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
 
+  create_table "precincts", :force => true do |t|
+    t.integer   "precinct_number"
+    t.integer   "team_id"
+    t.string    "county"
+    t.timestamp "created_at",      :limit => 6, :null => false
+    t.timestamp "updated_at",      :limit => 6, :null => false
+    t.integer   "van_precinct_id"
+    t.string    "state"
+  end
+
+  create_table "regions", :force => true do |t|
+    t.string    "state"
+    t.string    "region_name"
+    t.timestamp "created_at",  :limit => 6, :null => false
+    t.timestamp "updated_at",  :limit => 6, :null => false
+  end
+
   create_table "scrapers", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "teams", :force => true do |t|
+    t.integer   "organizer_id"
+    t.string    "team_name"
+    t.timestamp "created_at",   :limit => 6, :null => false
+    t.timestamp "updated_at",   :limit => 6, :null => false
   end
 
   create_table "users", :force => true do |t|
