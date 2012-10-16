@@ -1,12 +1,22 @@
 <div class="row-fluid">
   <div class="span10">
-    <table>
+    <table class="table table-striped table-bordered">
       <thead>
         <tr>
+          <td>List Name</td>
+          <td>VAN List ID</td>
+          <td>County</td>
+          <td>Precinct Number</td>
         </tr>
       </thead>
       <tbody>
         <% @lists.each do |list| %>
+        <tr>
+          <td><%= list.list_name %></td>
+          <td><%= list.van_list_id %></td>
+          <td><%= list.precinct.county %></td>
+          <td><%= list.precinct.precinct_number %></td>
+        </tr>
         <% end %>
       </tbody>
     </table>
