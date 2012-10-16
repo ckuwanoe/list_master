@@ -4,4 +4,7 @@ class ListsController < ApplicationController
     @lists = List.region_and_status_join.order("precincts.county, precincts.precinct_number")
   end
 
+  def calendar
+
+  end
 end
