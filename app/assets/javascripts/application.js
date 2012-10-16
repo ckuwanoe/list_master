@@ -19,3 +19,5 @@
 //= require showdown
 //= require google-jsapi
 //= require main
+//= require dataTables/jquery.dataTables
+//= require dataTables/jquery.dataTables.bootstrap
