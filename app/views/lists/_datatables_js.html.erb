@@ -1,0 +1,25 @@
+$(document).ready(function() {
+  //* basic
+  datatbles.dt_a();
+});
+
+//* datatables
+datatbles = {
+  dt_a: function() {
+    $('#dt_a').dataTable({
+              "sDom": "<'row'<'span6'<'dt_actions'>l><'span6'f>r>t<'row'<'span6'i><'span6'p>>",
+              "sPaginationType": "bootstrap",
+              "iDisplayLength": 25,
+              "oLanguage": {
+                  "sLengthMenu": "_MENU_ records per page"
+              }
+          });
+  },
+  dt_b: function() {
+    var oTable = $('#dt_b').dataTable({
+      "sDom": "<'row'<'span6'><'span6'f>r>",
+      "sPaginationType": "bootstrap",
+      "iDisplayLength": 500
+    });
+  }
+};

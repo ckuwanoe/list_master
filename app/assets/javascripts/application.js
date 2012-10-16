@@ -17,7 +17,7 @@
 //= require jquery.lightbox-0.5.min
 //= require jquery.lightbox-0.5.pack
 //= require showdown
-//= require google-jsapi
-//= require main
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
+//= require main
+//= require fullcalendar/fullcalendar
