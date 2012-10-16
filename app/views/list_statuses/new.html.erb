@@ -1,0 +1,33 @@
+<div class="row-fluid">
+  <div class="span10">
+    <table class="table table-striped table-bordered dTableR" id="dt_a">
+      <thead>
+        <tr>
+          <td>List Name</td>
+          <td>VAN List ID</td>
+          <td>County</td>
+          <td>Precinct Number</td>
+          <td>Current Status</td>
+          <td>Last Status</td>
+        </tr>
+      </thead>
+      <tbody>
+        <% @lists.each do |list| %>
+        <tr>
+          <td><%= list.list_name %></td>
+          <td><%= list.van_list_id %></td>
+          <td><%= list.precinct.county %></td>
+          <td><%= list.precinct.precinct_number %></td>
+          <td><%= list.current_status %></td>
+          <td><%= list.latest_status %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    <%= render partial: 'datatables_js' %>
+  </script>
+<% end %>
