@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121016044105) do
+ActiveRecord::Schema.define(:version => 20121017221423) do
 
   create_table "assets", :force => true do |t|
     t.integer  "list_id"
@@ -19,6 +19,21 @@ ActiveRecord::Schema.define(:version => 20121016044105) do
     t.string   "asset_url"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "districts", :force => true do |t|
+    t.integer  "precinct_id"
+    t.string   "state_senate"
+    t.string   "assembly"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
+  end
+
+  create_table "list_attributes", :force => true do |t|
+    t.integer  "list_id"
+    t.integer  "doors_count"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "list_statuses", :force => true do |t|
@@ -38,6 +53,8 @@ ActiveRecord::Schema.define(:version => 20121016044105) do
     t.integer  "precinct_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "turf_number"
+    t.integer  "doors_count"
   end
 
   create_table "organizations", :force => true do |t|
@@ -64,6 +81,14 @@ ActiveRecord::Schema.define(:version => 20121016044105) do
   create_table "packets", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "precinct_attributes", :force => true do |t|
+    t.integer  "precinct_id"
+    t.integer  "total_doors"
+    t.float    "precinct_density"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "precincts", :force => true do |t|

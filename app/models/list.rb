@@ -23,4 +23,24 @@ class List < ActiveRecord::Base
   def region_name
     self.precinct.team.organizer.region.region_name
   end
+
+  def import_file(file)
+    CSV.parse(File.open(file), :col_sep => "\t" )[1..-1].each do |row|
+      #set vars
+      import_van_list_id = row[0].to_i
+      import_list_name = row[1].strip
+      import_turf_number = row[2].strip.split(" ").last.to_i
+      import_doors = row[3].to_i
+      breakdown = import_list_name.split(".")
+      county = breakdown[0]
+      region = breakdown[1]
+      precincts = breakdown[2].split("-")
+
+      #create survey response datasets
+      precincts.each do |p|
+        precinct = Precinct.where(:precinct_number => p.to_i, :county => county).first
+        list = self.create!(:list_name => import_list_name, :van_list_id => import_van_list_id, :turf_number => import_turf_number, )
+      end
+    end
+  end
 end
