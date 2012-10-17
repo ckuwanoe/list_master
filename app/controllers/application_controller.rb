@@ -1,3 +1,11 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+
+  def date_to_db(date)
+    if date.match(/\//)
+      return db_date = Date.strptime(date, "%m/%d/%Y").to_s("%Y-%m-%d")
+    else
+      return date
+    end
+  end
 end

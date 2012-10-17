@@ -299,6 +299,15 @@ header i{
     background-color:rgba(0,175,219,0.1);
 }
 
+.form-sidebar{
+    right: 0;
+    position: fixed;
+}
+.form-sidebar ul{
+    list-style:none;
+    margin:0;
+}
+
 .content{
     background-color:rgba(235,235,235,0);
     padding:20px;
