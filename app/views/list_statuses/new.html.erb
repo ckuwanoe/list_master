@@ -3,6 +3,7 @@
     <table class="table table-striped table-bordered dTableR" id="dt_a">
       <thead>
         <tr>
+          <td>Update</td>
           <td>List Name</td>
           <td>VAN List ID</td>
           <td>County</td>
@@ -14,6 +15,7 @@
       <tbody>
         <% @lists.each do |list| %>
         <tr>
+          <td><input type="checkbox" name="lists[]" value="<%= list.id %>"></td>
           <td><%= list.list_name %></td>
           <td><%= list.van_list_id %></td>
           <td><%= list.precinct.county %></td>
