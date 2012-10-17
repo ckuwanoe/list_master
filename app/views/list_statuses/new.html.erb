@@ -4,11 +4,12 @@
     <table class="table table-striped table-bordered dTableR" id="dt_a">
       <thead>
         <tr>
-          <td>Update</td>
+          <td></td>
           <td>List Name</td>
           <td>VAN List ID</td>
           <td>County</td>
-          <td>Precinct Number</td>
+          <td>Region</td>
+          <td>Precinct</td>
           <td>Current Status</td>
           <td>Last Status</td>
         </tr>
@@ -20,6 +21,7 @@
           <td><%= list.list_name %></td>
           <td><%= list.van_list_id %></td>
           <td><%= list.precinct.county %></td>
+          <td><%= list.region_name %></td>
           <td><%= list.precinct.precinct_number %></td>
           <td><%= list.current_status.match("Checked out") ? raw("<span class='out'>#{list.current_status}</span>") : list.current_status %></td>
           <td><%= list.latest_status %></td>

@@ -19,4 +19,8 @@ class List < ActiveRecord::Base
     status = ListStatus.where(:list_id => self.id, :date => Time.zone.now).first
     status.present? ? "#{status.status.humanize} by #{status.organization.organization_name}" : "Open"
   end
+
+  def region_name
+    self.precinct.team.organizer.region.region_name
+  end
 end
