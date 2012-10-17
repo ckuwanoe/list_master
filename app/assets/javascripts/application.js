@@ -21,3 +21,5 @@
 //= require dataTables/jquery.dataTables.bootstrap
 //= require main
 //= require fullcalendar/fullcalendar
+//= require bootstrap/bootstrap-datepicker
+//= require list_statuses

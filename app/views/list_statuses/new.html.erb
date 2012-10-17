@@ -21,7 +21,7 @@
           <td><%= list.van_list_id %></td>
           <td><%= list.precinct.county %></td>
           <td><%= list.precinct.precinct_number %></td>
-          <td><%= list.current_status %></td>
+          <td><%= list.current_status.match("Checked out") ? raw("<span class='out'>#{list.current_status}</span>") : list.current_status %></td>
           <td><%= list.latest_status %></td>
         </tr>
         <% end %>
@@ -31,10 +31,10 @@
   <div class="span3 form-sidebar">
     <ul>
       <li>Checkout date</li>
-      <li><%= f.text_field :date %></li>
+      <li><%= f.text_field :date, {:id => "dp1", :value => Time.zone.now.strftime("%m/%d/%Y"), :format => :display} %></li>
       <li></li>
       <li>Organization</li>
-      <li><select></select></li>
+      <li><%= f.collection_select :organization_id, Organization.order(:id), :id, :organization_name, :prompt => true %></li>
       <li></li>
       <li><%= f.submit :submit, :class => 'btn btn-success' %></li>
     </ul>
