@@ -11,9 +11,10 @@ class List < ActiveRecord::Base
   validates :doors_count, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
 
   def self.region_and_status_join
-    select("lists.*, precincts.county, precincts.precinct_number, regions.region_name")
+    select("lists.*, precincts.county, precincts.precinct_number, regions.region_name, precinct_attributes.precinct_density")
       .joins("INNER JOIN precincts ON lists.precinct_id = precincts.id INNER JOIN teams ON precincts.team_id = teams.id
       INNER JOIN organizers ON teams.organizer_id = organizers.id INNER JOIN regions ON organizers.region_id = regions.id
+      INNER JOIN precinct_attributes ON precinct_attributes.precinct_id = precincts.id
       LEFT OUTER JOIN list_statuses ON lists.id = list_statuses.list_id")
   end
 

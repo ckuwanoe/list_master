@@ -1,6 +1,6 @@
 class ListsDatatable
   delegate :params, :h, :link_to, :raw, :number_with_precision, to: :@view
-
+  #include 'ActionView::Helpers'
   def initialize(view)
     @view = view
     @current_user = User.current
@@ -27,6 +27,8 @@ private
         list.turf_number,
         list.county,
         list.region_name,
+        #number_to_percentage(list.precinct_density, :precision => 2),
+        "#{(list.precinct_density.to_f * 100).round(2)}%",
         list.doors_count,
         list.current_status,
         list.latest_status
@@ -62,7 +64,7 @@ private
   end
 
   def sort_column
-    columns = %w[ list_name van_list_id precinct_number turf_number county region_name doors_count current_status latest_status]
+    columns = %w[ list_name van_list_id precinct_number turf_number county region_name doors_count precinct_density current_status latest_status]
     columns[params[:iSortCol_0].to_i]
   end
 
