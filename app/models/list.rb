@@ -4,6 +4,12 @@ class List < ActiveRecord::Base
   has_many :organizations, :through => :list_statuses
   belongs_to :precinct
 
+  validates :list_name, :presence => true
+  validates :van_list_id, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
+  validates :precinct_id, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
+  validates :turf_number, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
+  validates :doors_count, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
+
   def self.region_and_status_join
     select("lists.*, precincts.county, precincts.precinct_number, regions.region_name")
       .joins("INNER JOIN precincts ON lists.precinct_id = precincts.id INNER JOIN teams ON precincts.team_id = teams.id

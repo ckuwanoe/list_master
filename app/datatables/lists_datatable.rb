@@ -23,9 +23,11 @@ private
         raw("<input type='checkbox' name='list_ids[]'' value='#{list.id}'' class='checked'>"),
         list.list_name,
         list.van_list_id,
+        list.precinct_number,
+        list.turf_number,
         list.county,
         list.region_name,
-        list.precinct_number,
+        list.doors_count,
         list.current_status,
         list.latest_status
       ]
@@ -60,7 +62,7 @@ private
   end
 
   def sort_column
-    columns = %w[ list_name distance van_list_id county region_name precinct_number current_status latest_status]
+    columns = %w[ list_name van_list_id precinct_number turf_number county region_name doors_count current_status latest_status]
     columns[params[:iSortCol_0].to_i]
   end
 

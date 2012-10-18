@@ -7,9 +7,11 @@
           <td></td>
           <td>List Name</td>
           <td>VAN List ID</td>
+          <td>Precinct</td>
+          <td>Turf</td>
           <td>County</td>
           <td>Region</td>
-          <td>Precinct</td>
+          <td>Doors</td>
           <td>Current Status</td>
           <td>Last Status</td>
         </tr>
@@ -22,6 +24,7 @@
   <div class="span3 form-sidebar">
     <ul>
       <li><input type="checkbox" id="selectall" name="selectall"> Select All Checkboxes</li>
+      <li>&nbsp;</li>
       <li>Checkout date</li>
       <li><%= f.text_field :date, {:id => "dp1", :value => Time.zone.now.strftime("%m/%d/%Y"), :format => :display} %></li>
       <li></li>
