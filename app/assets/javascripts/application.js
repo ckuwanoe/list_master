@@ -23,3 +23,4 @@
 //= require fullcalendar/fullcalendar
 //= require bootstrap/bootstrap-datepicker
 //= require list_statuses
+//= require datatables

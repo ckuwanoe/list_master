@@ -1,7 +1,7 @@
 <div class="row-fluid">
   <%= form_for(@list_status,:html => { :class => "form_validation_ttip", :validate => true}) do |f| %>
   <div class="span8">
-    <table class="table table-striped table-bordered dTableR" id="new-status" data-source="<%= new_list_status_url(format: "json") %>">
+    <table class="table table-striped table-bordered dTableR" id="dt_a">
       <thead>
         <tr>
           <td></td>
@@ -15,7 +15,18 @@
         </tr>
       </thead>
       <tbody>
-
+        <% @lists.each do |list| %>
+        <tr>
+          <td><input type="checkbox" name="list_ids[]" value="<%= list.id %>"></td>
+          <td><%= list.list_name %></td>
+          <td><%= list.van_list_id %></td>
+          <td><%= list.county %></td>
+          <td><%= list.region_name %></td>
+          <td><%= list.precinct_number %></td>
+          <td><%= list.current_status.match("Checked out") ? raw("<span class='out'>#{list.current_status}</span>") : list.current_status %></td>
+          <td><%= list.latest_status %></td>
+        </tr>
+        <% end %>
       </tbody>
     </table>
   </div>
@@ -33,4 +44,8 @@
 </div>
 <div class="spacer">&nbsp;</div>
 <% end %>
-
+<% content_for :scripts do %>
+  <script type="text/javascript">
+    <%= render partial: 'datatables_js' %>
+  </script>
+<% end %>
