@@ -20,9 +20,9 @@
           <td><input type="checkbox" name="list_ids[]" value="<%= list.id %>"></td>
           <td><%= list.list_name %></td>
           <td><%= list.van_list_id %></td>
-          <td><%= list.precinct.county %></td>
+          <td><%= list.county %></td>
           <td><%= list.region_name %></td>
-          <td><%= list.precinct.precinct_number %></td>
+          <td><%= list.precinct_number %></td>
           <td><%= list.current_status.match("Checked out") ? raw("<span class='out'>#{list.current_status}</span>") : list.current_status %></td>
           <td><%= list.latest_status %></td>
         </tr>
@@ -42,6 +42,7 @@
     </ul>
   </div>
 </div>
+<div class="spacer">&nbsp;</div>
 <% end %>
 <% content_for :scripts do %>
   <script type="text/javascript">

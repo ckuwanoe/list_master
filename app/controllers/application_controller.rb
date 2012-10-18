@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
+  require 'csv'
 
   def date_to_db(date)
     if date.match(/\//)

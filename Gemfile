@@ -41,6 +41,7 @@ group :development, :test do
   gem 'fabrication'
   gem 'pry'
   gem 'simplecov', :require => false
+  gem 'rack-mini-profiler'
 end
 
 gem 'devise'
