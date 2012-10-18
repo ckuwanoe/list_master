@@ -12,13 +12,13 @@ class List < ActiveRecord::Base
   end
 
   def latest_status
-    @latest_status ||= ListStatus.where(:list_id => self.id).order("created_at DESC").first
-    @latest_status.present? ? "Last #{status.status.humanize} by #{status.organization.organization_name} on #{status.date.strftime("%m/%d")}" : "n/a"
+    status ||= ListStatus.where(:list_id => self.id).order("created_at DESC").first
+    status.present? ? "Last #{status.status.humanize} by #{status.organization.organization_name} on #{status.date.strftime("%m/%d")}" : "n/a"
   end
 
   def current_status
-    @current_status ||= ListStatus.where(:list_id => self.id, :date => Time.zone.now).first
-    @current_status.present? ? "#{status.status.humanize} by #{status.organization.organization_name}" : "Open"
+    status ||= ListStatus.where(:list_id => self.id, :date => Time.zone.now).first
+    status.present? ? "#{status.status.humanize} by #{status.organization.organization_name}" : "Open"
   end
 
   def region_name

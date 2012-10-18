@@ -21,6 +21,7 @@
   </div>
   <div class="span3 form-sidebar">
     <ul>
+      <li><input type="checkbox" id="selectall" name="selectall"> Select All Checkboxes</li>
       <li>Checkout date</li>
       <li><%= f.text_field :date, {:id => "dp1", :value => Time.zone.now.strftime("%m/%d/%Y"), :format => :display} %></li>
       <li></li>

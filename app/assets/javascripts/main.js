@@ -32,12 +32,25 @@ $(document).ready(function(){
       }
     });
 
+    $(document).ready(function() {
+      $("input[name='selectall']").click(function() {
+        var checked = $(this).attr("checked");
+
+        $("#myTable tr td input:checkbox").attr("checked", checked);
+      });
+    });
+/*
     $(function () {
-     $('#selectall').click(function () {
+     $('#selectall').change(function () {
       $('#new-status input:checkbox').attr('checked', $(this).attr('checked'));
      });
     });
 
+    function SelectAllCheckBoxes();
+    {
+      $('#new-status').find(':checkbox').attr('checked', $('.checked').is(":checked"));
+    }
+*/
     //BIND DROPPER SIDEBAR ACTIONS
     $('.sideBar > ul > li.dropper >figure:first-child').on("click",function(){
       $(this).parent().find('.subSide').slideToggle(300);

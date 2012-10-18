@@ -41,7 +41,7 @@ private
     if params[:sSearch].present?
       search_string = params[:sSearch].gsub("'","")
       #if search_string.match(/^[r][ ]*[:][ ]*[0-9 ]+/i)
-      if search_string.match(/^*[0-9 ]+/i) # if the search string is numeric only
+      if search_string.match(/^[0-9 ]+/i) # if the search string is numeric only
         lists = lists.where("precincts.precinct_number ILIKE :search OR van_list_id ILIKE :search", search: "%#{search_string}%")
       else
         lists = lists.where("list_name ILIKE :search OR regions.region_name ILIKE :search OR precincts.county ILIKE :search", search: "%#{search_string}%")
