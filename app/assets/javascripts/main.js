@@ -32,7 +32,11 @@ $(document).ready(function(){
       }
     });
 
-
+    $(function () {
+     $('#selectall').click(function () {
+      $('#new-status input:checkbox').attr('checked', $(this).attr('checked'));
+     });
+    });
 
     //BIND DROPPER SIDEBAR ACTIONS
     $('.sideBar > ul > li.dropper >figure:first-child').on("click",function(){

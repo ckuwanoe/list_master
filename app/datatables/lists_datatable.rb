@@ -20,7 +20,7 @@ private
   def data
     lists.map do |list|
       array = [
-        raw("<input type='checkbox' name='list_ids[]'' value='#{list.id}''>"),
+        raw("<input type='checkbox' name='list_ids[]'' value='#{list.id}'' class='checked'>"),
         list.list_name,
         list.van_list_id,
         list.county,
@@ -39,10 +39,12 @@ private
   def fetch_lists
     lists = List.region_and_status_join.order("#{sort_column} #{sort_direction}")
     if params[:sSearch].present?
-      search = params[:sSearch].gsub("'","")
-      if search.match(/^[r][ ]*[:][ ]*[0-9 ]+/i)
-        lists = lists.where("list_name ILIKE :search OR regions.region_name ILIKE :search OR precincts.county ILIKE :search
-          OR precincts.precint_number ILIKE :search OR van_list_id ILIKE :search", search: "%#{search}%")
+      search_string = params[:sSearch].gsub("'","")
+      #if search_string.match(/^[r][ ]*[:][ ]*[0-9 ]+/i)
+      if search_string.match(/^*[0-9 ]+/i) # if the search string is numeric only
+        lists = lists.where("precincts.precinct_number ILIKE :search OR van_list_id ILIKE :search", search: "%#{search_string}%")
+      else
+        lists = lists.where("list_name ILIKE :search OR regions.region_name ILIKE :search OR precincts.county ILIKE :search", search: "%#{search_string}%")
       end
     end
     lists = Kaminari.paginate_array(lists).page(page).per(per_page)
@@ -54,7 +56,7 @@ private
   end
 
   def per_page
-    params[:iDisplayLength].to_i > 0 ? params[:iDisplayLength].to_i : 25
+    params[:iDisplayLength].to_i > 0 ? params[:iDisplayLength].to_i : 100
   end
 
   def sort_column
