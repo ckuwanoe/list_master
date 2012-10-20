@@ -17,7 +17,7 @@ jQuery ->
         bSortable: false
         aTargets: ['unsortable']
       ]
-      aaSorting: [[ 6, "asc" ]]
+      aaSorting: [[ 1, "asc" ]]
       bFilter: true
       bPaginate: true
       bStateSave: true

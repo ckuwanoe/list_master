@@ -32,10 +32,18 @@ class List < ActiveRecord::Base
     self.precinct.team.organizer.region.region_name
   end
 
+  def self.bundle_for_organization_and_date(organization_id,date)
+    organization = Organization.find(organization_id)
+    lists = self.region_and_status_join.where("list_statuses.organization_id = #{organization_id} AND list_statuses.date = '#{date}'")
+    lists.each do |list|
+      filename = Dir.glob("/Users/eschalon/Dropbox/Obama/gotv_turf/#{Time.now.strftime("%Y-%m-%d")}/#{list.county}/*#{list.precinct_number}*.pdf")
+    end
+  end
+
   def self.import_all
-    Dir.foreach('/Users/eschalon/Dropbox/vanscraper/2012-10-17_van_csvs/') do |file|
+    Dir.foreach('/Users/eschalon/Dropbox/vanscraper/2012-10-18_van_csvs/') do |file|
       next if file == '.' or file == '..'
-      filename = "/Users/eschalon/Dropbox/vanscraper/2012-10-17_van_csvs/#{file}"
+      filename = "/Users/eschalon/Dropbox/vanscraper/2012-10-18_van_csvs/#{file}"
       self.import_file(filename)
     end
   end
