@@ -11,10 +11,11 @@ class List < ActiveRecord::Base
   validates :doors_count, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
 
   def self.region_and_status_join
-    select("lists.*, precincts.county, precincts.precinct_number, regions.region_name, precinct_attributes.precinct_density")
+    select("DISTINCT(lists.id), lists.list_name, lists.van_list_id, lists.turf_number, precincts.county, precincts.county, precincts.precinct_number,
+      regions.region_name, precinct_attributes.precinct_density, list_attributes.doors_count")
       .joins("INNER JOIN precincts ON lists.precinct_id = precincts.id INNER JOIN teams ON precincts.team_id = teams.id
       INNER JOIN organizers ON teams.organizer_id = organizers.id INNER JOIN regions ON organizers.region_id = regions.id
-      INNER JOIN precinct_attributes ON precinct_attributes.precinct_id = precincts.id
+      INNER JOIN precinct_attributes ON precinct_attributes.precinct_id = precincts.id LEFT OUTER JOIN list_attributes ON list_attributes.list_id = lists.id
       LEFT OUTER JOIN list_statuses ON lists.id = list_statuses.list_id")
   end
 
@@ -28,9 +29,9 @@ class List < ActiveRecord::Base
     status.present? ? "#{status.status.humanize} by #{status.organization.organization_name}" : "Open"
   end
 
-  def region_name
-    self.precinct.team.organizer.region.region_name
-  end
+  #def region_name
+  #  self.precinct.team.organizer.region.region_name
+  #end
 
   def self.bundle_for_organization_and_date(organization_id,date)
     organization = Organization.find(organization_id)
