@@ -48,7 +48,10 @@ class List < ActiveRecord::Base
           organizations ON list_statuses.organization_id = organizations.id
       ) statuses ON lists.id = statuses.list_id
       #{where}
-      #{order}"
+      GROUP BY lists.id,precincts.precinct_number, precincts.county, precinct_attributes.precinct_density, list_attributes.doors_count,
+      statuses.two_days_ago, statuses.one_day_ago, statuses.today, statuses.one_day_from_now, statuses.two_days_from_now
+      #{order}
+      "
     lists = self.find_by_sql(sql)
   end
 
