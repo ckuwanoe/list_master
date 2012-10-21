@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   respond_to :html, :js
 
   def index
-    @lists = List.region_and_status_join.order("precincts.county, precincts.precinct_number")
+    @lists = List.get_all_lists_by_day_for_five_days(nil,nil)
   end
 
   def calendar

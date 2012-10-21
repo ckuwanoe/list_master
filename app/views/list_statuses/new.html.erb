@@ -6,15 +6,14 @@
         <tr>
           <td></td>
           <td>List Name</td>
-          <td>VAN List ID</td>
-          <td>Precinct</td>
           <td>Turf</td>
-          <td>County</td>
-          <td>Region</td>
           <td>Density</td>
           <td>Doors</td>
-          <td>Current Status</td>
-          <td>Last Status</td>
+          <td><%= 2.days.ago.strftime("%m/%d") %></td>
+          <td><%= 1.day.ago.strftime("%m/%d") %></td>
+          <td><%= Time.zone.now.strftime("%m/%d") %></td>
+          <td><%= 1.day.from_now.strftime("%m/%d") %></td>
+          <td><%= 2.days.from_now.strftime("%m/%d") %></td>
         </tr>
       </thead>
       <tbody>

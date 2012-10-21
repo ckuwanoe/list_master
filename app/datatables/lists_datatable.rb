@@ -22,16 +22,14 @@ private
       array = [
         raw("<input type='checkbox' name='list_ids[]'' value='#{list.id}'' class='checked'>"),
         list.list_name,
-        list.van_list_id,
-        list.precinct_number,
         list.turf_number,
-        list.county,
-        list.region_name,
-        #number_to_percentage(list.precinct_density, :precision => 2),
         "#{(list.precinct_density.to_f * 100).round(2)}%",
         list.doors_count,
-        list.current_status,
-        list.latest_status
+        list.two_days_ago,
+        list.one_day_ago,
+        list.today,
+        list.one_day_from_now,
+        list.two_days_from_now
       ]
     end
   end
@@ -41,14 +39,14 @@ private
   end
 
   def fetch_lists
-    lists = List.region_and_status_join.order("#{sort_column} #{sort_direction}")
+    lists = List.get_all_lists_by_day_for_five_days(nil,nil)#.order("#{sort_column} #{sort_direction}")
     if params[:sSearch].present?
       search_string = params[:sSearch].gsub("'","")
       #if search_string.match(/^[r][ ]*[:][ ]*[0-9 ]+/i)
       if search_string.match(/^[0-9 ]+/i) # if the search string is numeric only
-        lists = lists.where("precincts.precinct_number = #{search_string} OR van_list_id = #{search_string}")
+        lists = List.get_all_lists_by_day_for_five_days(nil,"WHERE precincts.precinct_number::VARCHAR LIKE '%#{search_string}%'")
       else
-        lists = lists.where("list_name ILIKE :search OR regions.region_name ILIKE :search OR precincts.county ILIKE :search", search: "%#{search_string}%")
+        lists = List.get_all_lists_by_day_for_five_days(nil,"WHERE list_name ILIKE '#{search_string}' OR precincts.county ILIKE '#{search_string}'")
       end
     end
     lists = Kaminari.paginate_array(lists).page(page).per(per_page)

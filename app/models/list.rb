@@ -19,6 +19,39 @@ class List < ActiveRecord::Base
       LEFT OUTER JOIN list_statuses ON lists.id = list_statuses.list_id")
   end
 
+  def self.get_all_lists_by_day_for_five_days(order,where)
+    order = "ORDER BY precincts.county, precincts.precinct_number, lists.turf_number" if order.blank?
+    sql = "
+      SELECT
+        DISTINCT(lists.id), lists.list_name, lists.van_list_id, lists.turf_number, precincts.precinct_number, precincts.county,
+        precinct_attributes.precinct_density, list_attributes.doors_count, two_days_ago, one_day_ago, today, one_day_from_now, two_days_from_now
+      FROM
+        lists
+      INNER JOIN
+        precincts ON lists.precinct_id = precincts.id
+      INNER JOIN
+        precinct_attributes ON precinct_attributes.precinct_id = precincts.id
+      LEFT OUTER JOIN
+        list_attributes ON list_attributes.list_id = lists.id
+      LEFT OUTER JOIN
+      (
+        SELECT
+          list_id,
+          CASE WHEN list_statuses.date = CURRENT_DATE-2 THEN organization_name ELSE NULL END AS two_days_ago,
+          CASE WHEN list_statuses.date = CURRENT_DATE-1 THEN organization_name ELSE NULL END AS one_day_ago,
+          CASE WHEN list_statuses.date = CURRENT_DATE THEN organization_name ELSE NULL END AS today,
+          CASE WHEN list_statuses.date = CURRENT_DATE+1 THEN organization_name ELSE NULL END AS one_day_from_now,
+          CASE WHEN list_statuses.date = CURRENT_DATE+2 THEN organization_name ELSE NULL END AS two_days_from_now
+        FROM
+          list_statuses
+        INNER JOIN
+          organizations ON list_statuses.organization_id = organizations.id
+      ) statuses ON lists.id = statuses.list_id
+      #{where}
+      #{order}"
+    lists = self.find_by_sql(sql)
+  end
+
   def latest_status
     status ||= ListStatus.where(:list_id => self.id).order("created_at DESC").first
     status.present? ? "Last #{status.status.humanize} by #{status.organization.organization_name} on #{status.date.strftime("%m/%d")}" : "n/a"
@@ -28,10 +61,6 @@ class List < ActiveRecord::Base
     status ||= ListStatus.where(:list_id => self.id, :date => Time.zone.now).first
     status.present? ? "#{status.status.humanize} by #{status.organization.organization_name}" : "Open"
   end
-
-  #def region_name
-  #  self.precinct.team.organizer.region.region_name
-  #end
 
   def self.bundle_for_organization_and_date(organization_id,date)
     organization = Organization.find(organization_id)
