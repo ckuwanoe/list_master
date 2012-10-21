@@ -46,7 +46,7 @@ private
       if search_string.match(/^[0-9 ]+/i) # if the search string is numeric only
         lists = List.get_all_lists_by_day_for_five_days(nil,"WHERE precincts.precinct_number::VARCHAR LIKE '%#{search_string}%'")
       else
-        lists = List.get_all_lists_by_day_for_five_days(nil,"WHERE list_name ILIKE '#{search_string}' OR precincts.county ILIKE '#{search_string}'")
+        lists = List.get_all_lists_by_day_for_five_days(nil,"WHERE list_name ILIKE '%#{search_string}%' OR precincts.county ILIKE '%#{search_string}%'")
       end
     end
     lists = Kaminari.paginate_array(lists).page(page).per(per_page)
