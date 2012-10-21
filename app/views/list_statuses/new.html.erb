@@ -11,7 +11,7 @@
           <td>Doors</td>
           <td><%= 2.days.ago.strftime("%m/%d") %></td>
           <td><%= 1.day.ago.strftime("%m/%d") %></td>
-          <td><%= Time.zone.now.strftime("%m/%d") %></td>
+          <td class="today"><%= Time.zone.now.strftime("%m/%d") %></td>
           <td><%= 1.day.from_now.strftime("%m/%d") %></td>
           <td><%= 2.days.from_now.strftime("%m/%d") %></td>
         </tr>

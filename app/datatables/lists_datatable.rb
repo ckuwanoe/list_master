@@ -27,7 +27,7 @@ private
         list.doors_count,
         list.two_days_ago,
         list.one_day_ago,
-        list.today,
+        raw("<span class='today'>#{list.today}</span>"),
         list.one_day_from_now,
         list.two_days_from_now
       ]
