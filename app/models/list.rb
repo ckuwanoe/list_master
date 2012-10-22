@@ -46,11 +46,11 @@ class List < ActiveRecord::Base
         (
         SELECT
           list_id,
-          CASE WHEN list_statuses.date = CURRENT_DATE-2 THEN organization_name ELSE NULL END AS two_days_ago,
-          CASE WHEN list_statuses.date = CURRENT_DATE-1 THEN organization_name ELSE NULL END AS one_day_ago,
-          CASE WHEN list_statuses.date = CURRENT_DATE THEN organization_name ELSE NULL END AS today,
-          CASE WHEN list_statuses.date = CURRENT_DATE+1 THEN organization_name ELSE NULL END AS one_day_from_now,
-          CASE WHEN list_statuses.date = CURRENT_DATE+2 THEN organization_name ELSE NULL END AS two_days_from_now
+          CASE WHEN list_statuses.date = '#{2.days.ago.strftime("%Y-%m-%d")}' THEN organization_name ELSE NULL END AS two_days_ago,
+          CASE WHEN list_statuses.date = '#{1.day.ago.strftime("%Y-%m-%d")}'THEN organization_name ELSE NULL END AS one_day_ago,
+          CASE WHEN list_statuses.date = '#{Time.zone.now.strftime("%Y-%m-%d")}' THEN organization_name ELSE NULL END AS today,
+          CASE WHEN list_statuses.date = '#{1.day.from_now.strftime("%Y-%m-%d")}' THEN organization_name ELSE NULL END AS one_day_from_now,
+          CASE WHEN list_statuses.date = '#{2.days.from_now.strftime("%Y-%m-%d")}' THEN organization_name ELSE NULL END AS two_days_from_now
         FROM
           list_statuses
         INNER JOIN
