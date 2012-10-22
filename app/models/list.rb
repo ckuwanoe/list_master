@@ -37,6 +37,15 @@ class List < ActiveRecord::Base
       (
         SELECT
           list_id,
+          MAX(two_days_ago) AS two_days_ago,
+          MAX(one_day_ago) AS one_day_ago,
+          MAX(today) AS today,
+          MAX(one_day_from_now) AS one_day_from_now,
+          MAX(two_days_from_now) AS two_days_from_now
+        FROM
+        (
+        SELECT
+          list_id,
           CASE WHEN list_statuses.date = CURRENT_DATE-2 THEN organization_name ELSE NULL END AS two_days_ago,
           CASE WHEN list_statuses.date = CURRENT_DATE-1 THEN organization_name ELSE NULL END AS one_day_ago,
           CASE WHEN list_statuses.date = CURRENT_DATE THEN organization_name ELSE NULL END AS today,
@@ -46,6 +55,8 @@ class List < ActiveRecord::Base
           list_statuses
         INNER JOIN
           organizations ON list_statuses.organization_id = organizations.id
+        GROUP BY 1,2,3,4,5,6) a
+        GROUP BY 1
       ) statuses ON lists.id = statuses.list_id
       #{where}
       GROUP BY lists.id,precincts.precinct_number, precincts.county, precinct_attributes.precinct_density, list_attributes.doors_count,
