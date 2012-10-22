@@ -28,8 +28,8 @@ ListMaster::Application.routes.draw do
   resources :list_statuses
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  #root :to => 'lists#dashboard'
-  root :to => 'lists#index'
+  root :to => 'lists#dashboard'
+  #root :to => 'lists#index'
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
