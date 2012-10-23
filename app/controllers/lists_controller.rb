@@ -9,4 +9,8 @@ class ListsController < ApplicationController
   def calendar
 
   end
+
+  def dashboard
+    @lists = ListStatus.group_by_organization.where(:date => Time.zone.now.strftime("%Y-%m-%d"))
+  end
 end

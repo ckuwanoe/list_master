@@ -10,27 +10,18 @@
     <div class='box-widget-head'>
       <div class='pull-left'><i class='icon-new-charts'></i> Today</div>
       <div class='pull-right btn-group sharp'>
-        <button class='btn btn-mini noGR'><i class='icon-remove'></i></button>
-      </div>
+        <button class='btn btn-mini noGR'><i class='icon-chevron-down'></i></button>
+        <button class='btn btn-mini noGR'><i class='icon-chevron-up'></i></button>
+       </div>
     </div>
     <div class='box-widget-body'>
       <ul class='dashStats unstyled row-fluid'>
+        <% @lists.each_with_index do |list| %>
         <li class='span3'>
-            <p class='data'>1,78,078 <small>doors</small></p>
-            <p class='category'>OFA</p>
+            <p class='data'><%= list.present? ? list.lists_count : "0"  %> <small>turfs</small></p>
+            <p class='category'><%= list.organization.organization_name if list.present? %></p>
         </li>
-        <li class='span3'>
-            <p class='data'>1,28,371 <small>doors</small></p>
-            <p class='category'>BSP</p>
-        </li>
-        <li class='span3'>
-            <p class='data'>58,328 <small>doors</small></p>
-            <p class='category'>NSDP</p>
-        </li>
-        <li class='span3'>
-            <p class='data'>58,328 <small>doors</small></p>
-            <p class='category'>GCI</p>
-        </li>
+        <% end %>
       </ul>
       <br/>
     </div>
@@ -45,7 +36,8 @@
     <div class='box-widget-head'>
       <div class='pull-left'><i class='icon-new-charts'></i> Tomorrow</div>
       <div class='pull-right btn-group sharp'>
-        <button class='btn btn-mini noGR'><i class='icon-remove'></i></button>
+        <button class='btn btn-mini noGR'><i class='icon-chevron-down'></i></button>
+        <button class='btn btn-mini noGR'><i class='icon-chevron-up'></i></button>
       </div>
     </div>
     <div class='box-widget-body'>
@@ -85,7 +77,6 @@
       <div class='pull-right btn-group sharp'>
         <button class='btn btn-mini noGR'><i class='icon-chevron-down'></i></button>
         <button class='btn btn-mini noGR'><i class='icon-chevron-up'></i></button>
-        <button class='btn btn-mini noGR'><i class='icon-remove'></i></button>
       </div>
     </div>
     <div class='box-widget-body'>

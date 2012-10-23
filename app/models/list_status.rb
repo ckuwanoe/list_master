@@ -8,4 +8,8 @@ class ListStatus < ActiveRecord::Base
   validates :created_by_user_id, :presence => true, :numericality => {:greater_than_or_equal_to => 0}
   validates :status, :presence => true
   validates :date, :presence => true
+
+  def self.group_by_organization
+    select("COUNT(DISTINCT(list_id)) AS lists_count, organization_id").group(:organization_id)
+  end
 end
